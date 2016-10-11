@@ -1,11 +1,12 @@
 package medium;
 
-public class prob015 {
+public class Prob015_3Sum {
     public List<List<Integer>> threeSum(int[] nums) {
-        List<List<Integer>> ans = new ArrayList<List<Integer>>();
         Arrays.sort(nums);
+        List<List<Integer>> list = new LinkedList<List<Integer>>();
         for (int i = 0; i < nums.length - 2; i++) {
             if (i > 0 && nums[i] == nums[i-1]) continue;
+            if (nums[i] > 0) break;
             int j = i + 1;
             int k = nums.length - 1;
             while (j < k) {
@@ -14,18 +15,18 @@ public class prob015 {
                     continue;
                 }
                 int sum = nums[i] + nums[j] + nums[k];
-                if (sum > 0) k--;
-                else if (sum < 0) j++;
-                else {
-                    List<Integer> rlt = new ArrayList<>();
-                    rlt.add(nums[i]);
-                    rlt.add(nums[j]);
-                    rlt.add(nums[k]);
-                    ans.add(rlt);
+                if (sum == 0) {
+                    List<Integer> res = new LinkedList<Integer>();
+                    res.add(nums[i]);
+                    res.add(nums[j]);
+                    res.add(nums[k]);
+                    list.add(res);
                     j++; k--;
                 }
+                else if (sum > 0) k--;
+                else j++;
             }
         }
-        return ans;
+        return list;
     }
 }

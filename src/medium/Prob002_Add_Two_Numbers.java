@@ -1,6 +1,6 @@
 package medium;
 
-public class prob002 {
+public class Prob002_Add_Two_Numbers {
     public ListNode addTwoNumbers(ListNode l1, ListNode l2) {
         int sum = 0;
         ListNode temp = new ListNode(0);

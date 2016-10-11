@@ -1,21 +1,17 @@
 package medium;
 
-public class prob016 {
+public class Prob016_3Sum_Closest {
     public int threeSumClosest(int[] nums, int target) {
-        if (nums == null || nums.length == 0) return 0;
         Arrays.sort(nums);
-        int closest = 0;
-        for (int i = 0; i < 3 && i < nums.length; i++) closest += nums[i];
-        if (nums.length < 4) return closest;
+        int closest = nums[0] + nums[1] + nums[2];
         for (int i = 0; i < nums.length - 2; i++) {
             int j = i + 1;
             int k = nums.length - 1;
             while (j < k) {
                 int sum = nums[i] + nums[j] + nums[k];
-                if (Math.abs(target - sum) < Math.abs(target - closest)) {
+                if (sum == target) return target;
+                else if (Math.abs(sum - target) < Math.abs(closest - target))
                     closest = sum;
-                    if (closest == target) return closest;
-                }
                 if (sum > target) k--;
                 else j++;
             }
