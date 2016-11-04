@@ -1,6 +1,6 @@
 package easy;
 
-public class prob001 {
+public class Prob001_Two_Sum {
     public int[] twoSum(int[] nums, int target) {
         HashMap<Integer, Integer> map = new HashMap<Integer, Integer>();
         int[] result = new int[2];
